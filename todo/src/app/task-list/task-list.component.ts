@@ -34,9 +34,6 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-
-
-
   ngOnInit() {
     this.loadTasks();
   }
@@ -45,6 +42,8 @@ addTask(dataTask: any) {
   this.restApi.createTask(this.taskDetails).subscribe((data: {}) => {
     this.router.navigate(['/task-list'])
     this.ngOnInit();
+    this.taskDetails.name = '';
+
   })
 }
 
